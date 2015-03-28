@@ -1,7 +1,36 @@
-@charset "UTF-8";
 
-/* CSS for medium devices ≥768px */
-@media (min-width: 768px) {
-  
+h1{
+	background-color: gray;
+	margin: 0;
+}
+
+.instructions {
+  text-align: center;
+  margin:0 auto;
+}
+ol {
+  list-style:none;
+}
+#score-box {
+	font-size: 4em;
+	font-weight: 100;
+	/*float: right;*/
+}
+#score{
+		display: inline-block;
+}
+#big-box{
+	margin: 0 auto;
+	display: inline-block;
+	width: 100%;
+}
+#turns{
+	display: inline-block;
+	margin-right: 3em
+}
+#turn-box{
+	font-size: 4em;
+	font-weight: 100;
+}
 
 /*# sourceMappingURL=style.css.map */

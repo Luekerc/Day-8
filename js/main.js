@@ -17,7 +17,8 @@ $(document).ready(function() {
 		//show the current number of turns taken
 		$('#turn-box').html(turns);
 		//validate that the input is not empty or a 
-		//letter/special-character
+		//letter/special-character.
+		//Note: I stole the isNan idea from Travis and Stackoverflow
 		if (value === "" || isNaN(value)){
 			$('.win-lose-box').html("You must enter a number.");
 		}
@@ -37,6 +38,7 @@ $(document).ready(function() {
 			//increase the score from 0 to 1
 			score++;
 			//Display a winning message along with the statistics
+			//Note: I stole the Math.round idea from Stackoverflow
 			$('.win-box').html("Congratulations!" +"<br>"+ 
 				"You won at a rate of " + Math.round(score/turns*100) 
 				+ "%!");

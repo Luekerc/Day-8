@@ -2,6 +2,12 @@
 h1{
 	background-color: gray;
 	margin: 0;
+	width: 50%;
+	margin: 0 auto;
+}
+li{
+	width: 50%;
+	margin: 0 auto;
 }
 
 .instructions {
@@ -31,6 +37,14 @@ ol {
 #turn-box{
 	font-size: 4em;
 	font-weight: 100;
+}
+.console{
+	color:red;
+	font-size: 10px;
+}
+.win-box{
+	color: purple;
+	font-size: 3em;
 }
 
 /*# sourceMappingURL=style.css.map */

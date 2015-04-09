@@ -1,62 +1,47 @@
 $(document).ready(function() {
-
-var numBer = Math.ceil(Math.random() * 100);
-console.log(numBer);
-
-function generateNum() {
-	var randomNum = Math.ceil(Math.random() * 100);
-	return randomNum;
-}
-
-function numberGame(value, randomNum) {
-	
-	value = $('input').val();
-	var win = false;
+	// Create a whole number between 1 and 100 inclusive
+	var createdNumber = Math.ceil(Math.random()*100);
+	console.log(createdNumber);
+	// begin tracking the number of turns and score
 	var score = 0;
 	var turns = 0;
-
-		if (isNaN(value)) {
-			throw "You did not enter a number";
-		}	
-
-		if (value == numBer) {
-			$('.win-lose-box').html('YOU WIN!');
-			score++;
-			$('#score-box').html(parseInt($('#score-box').html(), 10)+1);
-			turns++;
-			$('#turn-box').html(parseInt($('#turn-box').html(), 10)+1)
+	// When the #guess-button is clicked the number in 
+	// the "input" box is compared to createdNumber and 
+	//provides appropriate feedback to the player to try 
+	//again.
+	$('#guess-button').click(function(event){
+		//grab the value the user puts in the input box
+		var value = $("#input-box").val();
+		//increase the number of turns by 1 with every click
+		turns++;
+		//show the current number of turns taken
+		$('#turn-box').html(turns);
+		//validate that the input is not empty or a 
+		//letter/special-character
+		if (value === "" || isNaN(value)){
+			$('.win-lose-box').html("You must enter a number.");
 		}
-
-		else if (value > numBer) {
-			$('.win-lose-box').html('Too high, guess again'); 
-			$('input').val('');
-			turns++;
-			$('#turn-box').html(parseInt($('#turn-box').html(), 10)+1)
+		//compare the input value to the randomly created number
+		else if(value > createdNumber){
+			$('.win-lose-box').html("You're number is too high. Guess again.");
 		}
-
+		else if(value < createdNumber){
+			$('.win-lose-box').html("You're number is too low. Guess again.");
+		}
 		else {
-			$('.win-lose-box').html('Too low, guess again');
-			$('input').val('');
-			turns++;
-			$('#turn-box').html(parseInt($('#turn-box').html(), 10)+1)
+			//clear out unwanted html like 
+			//the turns taken and messages
+			$('.win-lose-box').html("");
+			$('#turn-box').html("");
+			$('h2').html("");
+			//increase the score from 0 to 1
+			score++;
+			//Display a winning message along with the statistics
+			$('.win-box').html("Congratulations!" +"<br>"+ 
+				"You won at a rate of " + Math.round(score/turns*100) 
+				+ "%!");
 		}
-
-	return score;
-	return turns;
-}
-
-	$('#start-button').click(function(event) {
-		var value = $('input').val();
-		numberGame(value, numBer);
-	});
-
-	$('#play-again').click(function(event) {
-
-		$('input').val('');
-		numBer = generateNum();
-		console.log(numBer);
-	});	
-	
+	})	
 });
 
 

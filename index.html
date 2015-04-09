@@ -19,16 +19,20 @@
     <ol  class="list-group">
       <li class="list-group-item list-group-item-success"> We have generated a number between 1 and 100. </li>
       <li class="list-group-item list-group-item-info"> Enter your guess in the box below and press the "Guess" button. </li>
-      <li class="list-group-item list-group-item-warning"> We will tell you if your guess was either too high or too low, but if you guess right, you win and will be awarded 1 point. </li>
+      <li class="list-group-item list-group-item-warning"> With each attempt we will tell you if your guess was either too high or too low.  If you win, you will be given a congratulatory message and a read-out of your game stats.</li>
     </ol>
+    <p class="console">Hint: The winning number is available in the console.
+    </p>
 
-    <input type="text" placeholder="Enter your guess">
+    <input type="text" id="input-box" placeholder="Enter your guess">
 
-    <button class ="btn btn-success" id="start-button">
+    <button class ="btn btn-success" id="guess-button">
       Guess
     </button>
 
     <div class ='win-lose-box'>
+    </div>
+     <div class ='win-box'>
     </div>
     <div id='big-box'>
       <div id="turns">    
@@ -39,20 +43,8 @@
             0
           </div>
       </div>
-      <div id="score">
-          <h2> 
-            Score
-          </h2>
-          <div id="score-box">
-            0
-          </div>
-      </div>
+
     </div>
-
-    <button class="btn btn-warning" id="play-again">
-      Play Again?
-    </button>
-
 
 
   </section>
